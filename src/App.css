@@ -1,44 +1,197 @@
-main {
-  align-content: center;
+/* Global Styles */
+
+* {
   box-sizing: border-box;
-  display: grid;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-  hyphens: auto;
-  line-height: 1.65;
-  margin: 0 auto;
-  max-width: 680px;
+  margin: 0;
+  padding: 0;
+  font-family: "Jost", sans-serif;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: #f73859;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  width: 25%;
+  line-height: 1;
+  height: 100%;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* App Styles */
+
+.App {
+  width: 100%;
   min-height: 100vh;
-  padding: 72px 0;
+  background: #111;
+  display: flex;
+}
+
+/* Typeracer Styles */
+
+.typeRacer {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #283149;
+}
+
+.typeRacer .wordOutput {
+  width: 100%;
+  background: #111727;
+  color: #fff;
+  padding: 20px;
   text-align: center;
 }
-h1 {
-  font-size: 45px;
+
+.typeRacer .wordOutput p {
+  font-size: 26px;
+  line-height: 1;
 }
-h2 {
-  margin-top: 1.5em;
+
+.typeRacer .time {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid #f73859;
+  color: #fff;
+  display: flex;
 }
-p {
-  font-size: 16px;
+
+.typeRacer .time p {
+  margin: auto;
+  font-size: 60px;
+  line-height: 1;
 }
-a {
-  border-bottom: 1px solid white;
-  color: #0076ff;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease;
+
+.typeRacer .wordValues {
+  width: 100%;
+  height: 50px;
+  display: flex;
 }
-a:hover {
-  border-bottom: 1px solid #0076ff;
+
+.typeRacer .wordValues input {
+  width: 75%;
+  height: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  background: #111727;
+  color: #fff;
 }
-code,
-pre {
-  color: #d400ff;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace, serif;
-  font-size: 0.92em;
+
+.typeRacer .wordValues input::placeholder {
+  color: #fff;
 }
-code:before,
-code:after {
-  content: '\`';
+
+/* Keyframes Animation For Clock */
+
+@keyframes scaleNumber {
+  0% {
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.25);
+  }
+}
+
+/* Result Styles */
+
+.results {
+  width: 100%;
+  max-width: 540px;
+  background: #283149;
+  display: flex;
+  flex-direction: column;
+}
+
+.results .title {
+  padding: 20px;
+  background: #111727;
+  color: #fff;
+}
+
+.results .title p {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.results .resultsContainer {
+  width: 100%;
+  display: flex;
+  height: 80vh;
+  max-height: 80vh;
+  overflow: auto;
+  margin: auto;
+}
+
+.results .resultsContainer::-webkit-scrollbar {
+  width: 7px;
+}
+
+.results .resultsContainer::-webkit-scrollbar-thumb {
+  background: #f73859;
+  border-radius: 50px;
+  outline: 1px solid slategrey;
+}
+
+.results .resultsContainer .correctResults,
+.results .resultsContainer .wrongResults {
+  width: 100%;
+  max-width: 50%;
+  padding: 14px;
+}
+
+.results .resultsContainer .correctResults .row,
+.results .resultsContainer .wrongResults .row {
+  width: 100%;
+  padding: 14px;
+  background: #f73859;
+  color: #fff;
+  border-radius: 4px;
+  word-wrap: break-word;
+}
+
+.results .resultsContainer .correctResults .row:not(:last-of-type),
+.results .resultsContainer .wrongResults .row:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+/* Media Queries */
+
+@media (max-width: 580px) {
+  button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1210px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 14px;
+  }
+  .App .container {
+    max-width: 700px;
+  }
+  .results {
+    max-width: 700px;
+    margin: 40px 0;
+  }
 }
