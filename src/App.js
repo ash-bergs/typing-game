@@ -1,6 +1,7 @@
 import React /*, { useState, useEffect }*/  from 'react';
 //import Words from "./components/Words"; 
 import Container from "./components/Container"; 
+import Typeracer from "./components/Typeracer"; 
 import "./App.css"
 /* -------------------------------------------------------------------------- */
 /*                            Notes on this project                           */
@@ -34,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-
+        <Typeracer />
       </Container>
     </div>
   );
