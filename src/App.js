@@ -15,7 +15,7 @@ function App() {
   //! STATE !\\
   // words is set to the object exported from the Words.js file
   //? I think a more appropriate name for this state would be words (plural) ? 
-  const [word, setWord] = useState(Words); 
+  const [word] = useState(Words); 
   // initial state is the first word in Words object
   const [newWord, setNewWord] = useState(word[0])
   // disabled toggles gameplay - starts the timer 
@@ -35,7 +35,8 @@ function App() {
   const checkAnswer = () => {
     if (inputValue.trim() === newWord) {
       setCorrectResults(prevCorrect => [...prevCorrect, newWord]); 
-      setCountCorrect(prevCorrect => prevCorrect + 1); 
+      console.log(countCorrect)
+      setCountCorrect(prevCount => prevCount + 1); 
       return;
     }
     setWrongResults(prevWrong => [...prevWrong, inputValue]); 
@@ -61,6 +62,27 @@ function App() {
     setCountCorrect([]); 
     setInputValue(""); 
   }
+
+  useEffect(() => {
+    if (time <= 30 && time !== 0 && disabled === false){
+      setTimeout(() => setTime(prevTime => prevTime - 1), 1000); 
+    } else if (disabled) {
+      setTime(30); 
+      setAnimation(null); 
+    } else if (time === 0) {
+      setDisabled(true); 
+    }
+
+    if (time <= 10) {
+      // programmatically adding CSS with JS! 
+      setAnimation("scaleNumber 2s infinite"); 
+    }
+  }, [disabled, time]); 
+
+  useEffect(() => {
+    // get a new word when the page is re-rendered? 
+    setNewWord(word[randomWord]); 
+  }, [])
 
   return (
     <div className="App">

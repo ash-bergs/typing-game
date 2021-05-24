@@ -9,7 +9,7 @@ const Results = (props) => {
         <div className="results">
             <div className="title">
                 <p>
-                    Correct Answers: {countCorrect}
+                    Correct Answers: {countCorrect.length}
                 </p>
             </div>
             <div className="resultsContainer">
