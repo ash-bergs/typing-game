@@ -6,6 +6,9 @@ const Results = (props) => {
         countCorrect,
         totalWords } = props; 
 
+        //TODO - there appears to be a bug.... i was recently playing with the app and the total number wasn't correct. I had typed every one of 17 words correctly.. but the score was 17/36 
+        //? investigate why this is happening 
+
     return (
         <div className="results">
             <div className="title">

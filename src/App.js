@@ -26,7 +26,10 @@ function App() {
   //! I'm using this variable, totalWords, to keep track of the total words a user has encountered, right or wrong 
   // the plan is to return a score at the end of the game, where the user can see how many words they got right total, etc. 
   const [totalWords, setTotalWords] = useState([]); 
+
+  //* 👇👇👇
   const [countCorrect, setCountCorrect] = useState(0); 
+  
   const [time, setTime] = useState(30); 
   // inputValue is the answer the user submits, what has been typed into the form component to come later 
   const [inputValue, setInputValue] = useState(""); 
