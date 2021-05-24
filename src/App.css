@@ -146,9 +146,8 @@ button {
 }
 
 .results .resultsContainer::-webkit-scrollbar-thumb {
-  background: #f73859;
+  background: seagreen;
   border-radius: 50px;
-  outline: 1px solid slategrey;
 }
 
 .results .resultsContainer .correctResults,
@@ -162,10 +161,17 @@ button {
 .results .resultsContainer .wrongResults .row {
   width: 100%;
   padding: 14px;
-  background: #f73859;
   color: #fff;
   border-radius: 4px;
   word-wrap: break-word;
+}
+
+.correctResults .row {
+  background: seagreen;
+}
+
+.wrongResults .row {
+  background: #f73859;
 }
 
 .results .resultsContainer .correctResults .row:not(:last-of-type),
