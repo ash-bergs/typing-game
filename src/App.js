@@ -29,8 +29,38 @@ function App() {
   const [inputValue, setInputValue] = useState(""); 
   const [animation, setAnimation] = useState(null); 
 
-  // let randomWord = Math.floor(Math.random() * word.length); 
+  let randomWord = Math.floor(Math.random() * word.length); 
 
+  //* check answer function 
+  const checkAnswer = () => {
+    if (inputValue.trim() === newWord) {
+      setCorrectResults(prevCorrect => [...prevCorrect, newWord]); 
+      setCountCorrect(prevCorrect => prevCorrect + 1); 
+      return;
+    }
+    setWrongResults(prevWrong => [...prevWrong, inputValue]); 
+  };
+
+  //* handle input
+  const handleInput = e => {
+    // charCode 13 = enter key 
+    if (e.charCode === 13 && inputValue.trim() !== ""){
+      checkAnswer();
+      setNewWord(word[randomWord]); 
+      // reset input field 
+      setInputValue(""); 
+    }
+  };
+
+  //* start the game! 
+  const handleStart = () => {
+    // toggle disabled status 
+    setDisabled(!disabled);
+    setCorrectResults([]); 
+    setWrongResults([]); 
+    setCountCorrect([]); 
+    setInputValue(""); 
+  }
 
   return (
     <div className="App">
@@ -42,6 +72,8 @@ function App() {
         disabled={disabled}
         time={time}
         animation={animation}
+        handleInput={handleInput}
+        handleStart={handleStart}
         />
       </Container>
       <Results 
