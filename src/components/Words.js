@@ -18,4 +18,8 @@ export default [
     "mayday", 
     "teleport", 
     "fishing", 
+    "progress", 
+    "potg", 
+    "garnish", 
+    "easy"
 ]; 
