@@ -23,6 +23,9 @@ function App() {
   //? these states have inconsistent names I might want to revisit later (for now I'll continue with the tutorial to avoid confusion)
   const [correctResults, setCorrectResults] = useState([]);
   const [wrongResults, setWrongResults] = useState([]); 
+  //! I'm using this variable, totalWords, to keep track of the total words a user has encountered, right or wrong 
+  // the plan is to return a score at the end of the game, where the user can see how many words they got right total, etc. 
+  const [totalWords, setTotalWords] = useState([]); 
   const [countCorrect, setCountCorrect] = useState(0); 
   const [time, setTime] = useState(30); 
   // inputValue is the answer the user submits, what has been typed into the form component to come later 
@@ -33,12 +36,15 @@ function App() {
 
   //* check answer function 
   const checkAnswer = () => {
+    // push the word into totalWords at the beginning of this function, it won't matter if it's right or wrong 
+    setTotalWords(prevTotal => [...prevTotal, inputValue]); 
+    
     if (inputValue.trim() === newWord) {
       setCorrectResults(prevCorrect => [...prevCorrect, newWord]); 
-      console.log(countCorrect)
       setCountCorrect(prevCount => prevCount + 1); 
       return;
     }
+    
     setWrongResults(prevWrong => [...prevWrong, inputValue]); 
   };
 
@@ -102,6 +108,7 @@ function App() {
       correctResults={correctResults}
       wrongResults={wrongResults}
       countCorrect={countCorrect}
+      totalWords={totalWords}
       />
     </div>
   );
