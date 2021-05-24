@@ -3,13 +3,14 @@ import React from 'react';
 const Results = (props) => {
     const { correctResults, 
         wrongResults, 
-        countCorrect } = props; 
+        countCorrect,
+        totalWords } = props; 
 
     return (
         <div className="results">
             <div className="title">
                 <p>
-                    Correct Answers: {countCorrect.length}
+                    Correct Answers: {countCorrect.length} / {totalWords.length}
                 </p>
             </div>
             <div className="resultsContainer">
