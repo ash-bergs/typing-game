@@ -1,6 +1,8 @@
 
 # Building a Typing Game with React! 
 
+[Play Here!](https://typing-game-beta-one.vercel.app/)
+
 This project is a simple typing game built with React. I built this to get some practice with React, project file structure, string manipulation, and refresh my memory of DOM mechanics. A user is given a word from a pre-made list of words, the goal is to type the most words correctly in a time limit. 
 
 This was built using a tutorial, once built I will refactor it and make it my own. There's nothing wrong with learning from our betters! 📺🏫
